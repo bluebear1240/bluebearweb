@@ -1,0 +1,139 @@
+@charset "utf-8";
+// **************************
+// mixinやらCSS3やら、extendも。
+// **************************
+/* mixin*/
+
+
+// =============================
+// ワイヤーフレーム
+// =============================
+@mixin wireframe($wirebox) {
+        border: $wirebox;//ワイヤーフレーム
+        @include box-sizing(border-box);
+}
+// =============================
+// グリッドわけ
+// =============================
+@mixin rows($col:12, $gutter: 0%, $class:'row') {
+    $grid: (100% - (($col - 1) * $gutter)) / $col;
+    @for $i from 1 through $col
+    {
+        $num: $col - $i + 1;
+        $width: ($grid * $num) + ($gutter * ($num - 1));
+        .#{$class} .col-#{$num}
+        {
+            width: $width;
+
+        }
+    }
+    .#{$class} [class*='col-'] {
+        margin-left: $gutter;
+        float: left;
+        @include wireframe($wirebox);//ワイヤーフレーム
+    }
+    .#{$class} [class*='col-']:first-child {
+        margin-left: 0;
+    }
+    .#{$class}:after {
+        content: "";
+        display: table;
+        clear: both;
+
+    }
+}
+ 
+@include rows();
+
+
+
+
+
+// =============================
+//ボックスのデザイン
+// =============================
+
+@mixin itemBox ($width, $height, $margin:null, $padding:null) {
+	width: $width;
+	height: $height;
+	margin: $margin;
+	padding: $padding;
+}
+
+//サンプルプロパティ
+//.itemA {
+	// 不要なプロパティはnull。
+//	@include itemBox(100px, null, 10px, 20px);
+//}
+
+// =============================
+//リストの
+// =============================
+@mixin blocks($col, $gutter: 1%, $class:'blocks') {
+    [class*='#{$class}-'] {
+        padding-left: 0;
+        list-style: none;
+    }
+    [class*='#{$class}-']:after {
+        content: "";
+        display: table;
+        clear: both;
+
+    }
+    [class*='#{$class}-'] > li {
+        height: auto;
+        float: left;
+        margin-bottom: 1em;
+        margin-right: $gutter;
+        @include wireframe($wirebox);//ワイヤーフレーム
+    }
+ 
+    [class*='#{$class}-'] > li li {
+        float: none;
+        margin: 0;
+
+    }
+    @for $i from 1 through $col
+    {
+        $grid: (100% - (($i - 1) * $gutter)) / $i;
+        $num: $col - $i + 1;
+        $width: ($grid * $num) + ($gutter * ($num - 1));
+        .#{$class}-#{$i} > li
+        {
+        width: $grid;
+
+        }
+    }
+}
+@include blocks(6, 0%);
+ 
+[class*='blocks-'] > li:nth-child(3n) {
+    margin-right: 0;
+}
+
+// =============================
+//メディアクエリ
+// =============================
+
+@mixin media($media-width) {
+	@if $media-width == sp{
+		@media only screen and (max-width: $bp-sp) {
+   		 @content;
+  		}
+	}
+
+	@else if $media-width == iphone{
+		@media only screen and (max-width: $bp-iphone) {
+   		 @content;
+   		}
+
+
+	}
+  
+	@else if $media-width == tablet{
+		@media only screen and (max-width: $bp-tablet) {
+   		 @content;	
+		}
+	}
+
+}

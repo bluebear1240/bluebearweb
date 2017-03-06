@@ -1,0 +1,103 @@
+@charset "utf-8";
+/* Parts */
+// ========================================
+// パーツ、ロゴ
+// ========================================
+//box
+//button
+//images
+//icon
+//label
+//form
+//nav
+//list
+//title
+
+
+// ========================================
+// ヘッダーパーツ
+// ========================================
+//ロゴ
+.rogo{
+@include stretch(2em);
+@include wireframe($wirebox);//ワイヤーフレーム
+width:200px;
+height: 2em;
+}
+
+//ヘッダーh1
+.h1header{
+	@include adjust-font-size-to(12px);
+	text-align: right;
+	@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+//ヘッダーお問合せボタン
+button　.contact-header{
+@include stretch(10px,100px,5px,5px);
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+//グローバルナビゲーション
+nav .gnavi1{
+@include wireframe($wirebox);//ワイヤーフレーム
+	border-radius: 5px;
+
+		li{
+		font-family: 'Noto Sans Japanese', sans-serif;
+      	display: flex;
+  		border: 1px solid #ccc;
+		border-radius: 5px;
+    	@include border-radius; //角丸
+		@include inline-block;  //横並びにする
+    	@include box-shadow;  //影をつける
+    	@include text-shadow;  //文字に影をつける
+     	@include background(linear-gradient($white,$blue)); //グラデーションボックス
+			a{
+			
+			}
+		}
+  		//@include inline-block;
+
+}
+
+// ========================================
+// メインパーツ
+// ========================================
+//メインビュー
+.mainview{
+height: 300px;
+}
+
+
+
+
+
+.linkcolor {
+	//リストを簡単に横並びにする
+	width:600px;
+	@include horizontal-list(2px,left);
+	@include wireframe($wirebox);//ワイヤーフレーム
+	li{
+		width:100px;
+		@include wireframe($wirebox);//ワイヤーフレーム
+	}
+li a{
+//(visited,focus,hover,active) aタグにかける
+@include link-colors($white,$red,#f00,#555,#f00);
+
+}
+}
+
+
+.feature-list {
+  display: flex;
+  flex-wrap: wrap;
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+.feature-item {
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%; /* IE11バグ対応 */
+@include wireframe($wirebox);//ワイヤーフレーム
+}

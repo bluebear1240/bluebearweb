@@ -1,0 +1,127 @@
+@charset "utf-8";
+// **************************
+// 設定
+// **************************
+
+
+// ========================================
+// フォント設定
+// ========================================
+//バーティカルリズムの設定を吐き出す
+
+
+.cntnear{
+@include outer-container;
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+
+
+
+
+
+
+
+
+.sp6shi3{
+@include span-columns(6);
+@include shift(3);
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+.Tbgrid{
+@include fill-parent();
+@include row(table);
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+
+li.block {
+  @include span-columns(3);
+  @include omega(4n);
+  @include wireframe($wirebox);//ワイヤーフレーム
+}
+
+
+.sppad4{
+@include span-columns(4);
+@include pad();
+@include border-color(red green null blue);
+}
+.sppad8{
+@include span-columns(8);
+@include reset-display;
+@include pad(); 
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+
+
+.sp4of8{
+@include span-columns(4 of 8);
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+.sp12{
+@include span-columns(12);
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+.sp11{
+@include span-columns(11);
+@include border-color(red green null blue);
+@include omega();
+}
+
+.sp10{
+@include span-columns(10);
+@include omega();
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+.sp9{
+@include span-columns(9);
+@include omega();
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+.sp8{
+@include span-columns(8);
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+.sp7{
+@include span-columns(7);
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+.sp6{
+@include span-columns(6);
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+.sp5{
+@include span-columns(5);
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+.sp4{
+@include span-columns(4);
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+.sp3{
+@include span-columns(3);
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+
+.sp2{
+@include span-columns(2);
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+.sp1{
+@include span-columns(1);
+@include wireframe($wirebox);//ワイヤーフレーム
+}

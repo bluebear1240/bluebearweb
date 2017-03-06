@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* layout*/
+// ========================================
+// レイアウト関係のスタイル
+// ========================================
+//header,body,aside,footer
+
+
+
+//ワイヤーフレームでボックスを作る
+
+ttt{
+	
+	
+}
+
+//header
+header{
+  width:$content-width;
+  height:$header-heignt;
+  padding:0;
+  margin:0;
+  list-style-type: none;
+  background-color:$white;
+font-family:$googlefont;//googleウェブフォントを指定
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+//body
+body{
+	background-color:$white;
+	height: 100%;
+  width:100%;
+  font-family: $base_font;//基準フォント
+  font-size: $base-font-size;//基準のフォントサイズ
+  @include wireframe($wirebox);//ワイヤーフレーム
+}
+
+
+
+//content
+.content{
+	width:$content-width;
+	background-color:$white;
+  @include wireframe($wirebox);//ワイヤーフレーム
+}
+
+
+//main
+main{
+width:$main-width;
+height: 100%;
+background-color:$white;
+padding:0;
+margin:0;
+float:left;
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+//aside
+
+aside{
+width:$aside-width;
+height: 100%;
+background-color:$white;
+padding:0;
+margin:0;
+float:left;
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+
+
+//footer
+
+//フッターをページ下部に合わせる場合　（サイズ、全体コンテナ、footer,）
+@include sticky-footer($footer-heignt, ".content", "footer");
+
+footer{
+//width:$content-width;
+//height:$footer-heignt;
+background-color:$white;
+padding:0;
+margin:0;
+@include wireframe($wirebox);//ワイヤーフレーム
+}
+
+
+
